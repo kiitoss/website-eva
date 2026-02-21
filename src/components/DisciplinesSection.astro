@@ -1,0 +1,90 @@
+---
+const disciplines = [
+  {
+    title: "Taiso Fundamentals",
+    description:
+      "Foundation work focusing on posture, breathing, and basic movement patterns. Ideal for beginners seeking a grounded introduction to the practice.",
+    duration: "60 min",
+    level: "All Levels",
+  },
+  {
+    title: "Judo Taiso",
+    description:
+      "Dynamic conditioning inspired by Judo training methods. Emphasizes breakfalls, rolling techniques, and partner exercises for functional agility.",
+    duration: "75 min",
+    level: "Intermediate",
+  },
+  {
+    title: "Shin Tai So",
+    description:
+      "An advanced practice blending meditative movement with challenging physical sequences. Designed to push boundaries while maintaining inner calm.",
+    duration: "90 min",
+    level: "Advanced",
+  },
+]
+---
+
+<section id="disciplines" class="py-24 md:py-32 bg-secondary">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16">
+      <div>
+        <p class="text-sm tracking-[0.3em] uppercase text-accent mb-4">
+          Disciplines
+        </p>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground text-balance">
+          Choose Your Path
+        </h2>
+      </div>
+      <p class="text-base text-muted-foreground max-w-md">
+        Each discipline is tailored to your level and goals. All sessions are one-on-one for personalized guidance.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8 items-start">
+      <!-- Image -->
+      <div class="relative aspect-[4/5] rounded-sm overflow-hidden">
+        <img
+          src="/images/practice.jpg"
+          alt="Taiso practice in a traditional dojo"
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+
+      <!-- Disciplines list -->
+      <div class="flex flex-col gap-6">
+        {disciplines.map((discipline, index) => (
+          <div class="border border-border bg-card rounded-sm p-8 transition-colors hover:border-accent/40">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <span class="text-xs tracking-wider text-accent font-medium">
+                  0{index + 1}
+                </span>
+                <h3 class="text-xl font-bold text-foreground mt-2">
+                  {discipline.title}
+                </h3>
+              </div>
+              <div class="flex flex-col items-end gap-1 shrink-0">
+                <span class="text-xs tracking-wide text-muted-foreground">
+                  {discipline.duration}
+                </span>
+                <span class="text-xs tracking-wide text-accent">
+                  {discipline.level}
+                </span>
+              </div>
+            </div>
+            <p class="text-sm leading-relaxed text-muted-foreground mt-4">
+              {discipline.description}
+            </p>
+          </div>
+        ))}
+
+        <a
+          href="#contact"
+          class="inline-flex items-center justify-center rounded-sm bg-primary px-8 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 mt-2"
+        >
+          Schedule a Session
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
