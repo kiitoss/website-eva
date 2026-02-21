@@ -1,0 +1,64 @@
+---
+const navLinks = [
+  { label: "Philosophy", href: "#philosophy" },
+  { label: "Disciplines", href: "#disciplines" },
+  { label: "Instructor", href: "#instructor" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "Contact", href: "#contact" },
+]
+---
+
+<footer class="bg-primary py-16">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="grid md:grid-cols-3 gap-12">
+      <!-- Brand -->
+      <div>
+        <span class="text-xl font-bold tracking-wide text-primary-foreground">TAISO</span>
+        <span class="text-xs tracking-[0.3em] uppercase text-primary-foreground/50 ml-3">Dojo</span>
+        <p class="text-sm leading-relaxed text-primary-foreground/60 mt-4 max-w-xs">
+          Personal martial art lessons rooted in the Japanese tradition of body conditioning and mindful movement.
+        </p>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <p class="text-xs tracking-[0.2em] uppercase text-primary-foreground/40 mb-4">
+          Navigation
+        </p>
+        <ul class="flex flex-col gap-3">
+          {navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Info -->
+      <div>
+        <p class="text-xs tracking-[0.2em] uppercase text-primary-foreground/40 mb-4">
+          Get in Touch
+        </p>
+        <div class="flex flex-col gap-3 text-sm text-primary-foreground/60">
+          <p>12 Rue de la Paix, 75002 Paris</p>
+          <p>contact@taiso-dojo.com</p>
+          <p>Mon – Sat, 7:00 – 20:00</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-primary-foreground/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-primary-foreground/40">
+        © 2026 Taiso Dojo. All rights reserved.
+      </p>
+      <p class="text-xs text-primary-foreground/30">
+        The path of a thousand miles begins with a single step.
+      </p>
+    </div>
+  </div>
+</footer>
