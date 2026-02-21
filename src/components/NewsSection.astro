@@ -1,0 +1,72 @@
+---
+const news = [
+  {
+    category: "Event",
+    date: "March 15, 2026",
+    title: "Spring Intensive Workshop",
+    description:
+      "A full-day immersion into traditional Taiso movement principles. Breathing, conditioning, and partner work — open to all levels. Spots are strictly limited.",
+  },
+  {
+    category: "Announcement",
+    date: "February 10, 2026",
+    title: "New Evening Classes Added",
+    description:
+      "Following high demand, two new evening slots open on Tuesdays and Thursdays starting March 1st. Register now to secure your place.",
+  },
+  {
+    category: "News",
+    date: "January 28, 2026",
+    title: "Dojo Renovation Complete",
+    description:
+      "Our training space has been expanded and upgraded with new tatami mats and equipment. Come discover the renewed space at your next session.",
+  },
+]
+
+const categoryColors: Record<string, string> = {
+  Event: "text-accent bg-accent/10",
+  Announcement: "text-foreground bg-secondary",
+  News: "text-muted-foreground bg-border/40",
+}
+---
+
+<section id="news" class="py-24 md:py-32 bg-secondary">
+  <div class="mx-auto max-w-6xl px-6">
+    <!-- Header -->
+    <div class="grid md:grid-cols-2 gap-16 items-end mb-16">
+      <div>
+        <p class="text-sm tracking-[0.3em] uppercase text-accent mb-4">
+          News
+        </p>
+        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground text-balance">
+          News from the Dojo
+        </h2>
+      </div>
+      <p class="text-base leading-relaxed text-muted-foreground">
+        Stay informed about upcoming events, new class schedules, and everything
+        happening at the dojo — whether you are already a student or considering
+        your first lesson.
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid md:grid-cols-3 gap-8">
+      {news.map((item) => (
+        <article class="group flex flex-col border border-border rounded-sm bg-background p-8 transition-colors hover:border-accent/40">
+          <div class="flex items-center justify-between mb-6">
+            <span class={`text-xs font-medium tracking-[0.15em] uppercase px-2.5 py-1 rounded-sm ${categoryColors[item.category]}`}>
+              {item.category}
+            </span>
+            <time class="text-xs text-muted-foreground">{item.date}</time>
+          </div>
+          <h3 class="text-lg font-bold text-foreground leading-snug mb-3">
+            {item.title}
+          </h3>
+          <p class="text-sm leading-relaxed text-muted-foreground flex-1">
+            {item.description}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
