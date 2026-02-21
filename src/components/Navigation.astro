@@ -1,0 +1,106 @@
+---
+const navLinks = [
+  { label: "Philosophy", href: "#philosophy" },
+  { label: "Disciplines", href: "#disciplines" },
+  { label: "Instructor", href: "#instructor" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "Contact", href: "#contact" },
+]
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+  <nav class="mx-auto max-w-6xl flex items-center justify-between px-6 py-4">
+    <a href="#" class="flex items-center gap-3">
+      <span class="text-xl font-bold tracking-wide text-foreground">TAISO</span>
+      <span class="hidden sm:inline text-xs tracking-[0.3em] uppercase text-muted-foreground">Dojo</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <ul class="hidden md:flex items-center gap-8">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="text-sm tracking-wide text-muted-foreground transition-colors hover:text-foreground"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <a
+      href="#contact"
+      class="hidden md:inline-flex items-center justify-center rounded-sm bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+    >
+      Book a Lesson
+    </a>
+
+    <!-- Mobile menu toggle -->
+    <button
+      id="menu-toggle"
+      class="md:hidden text-foreground"
+      aria-label="Open menu"
+    >
+      <!-- Menu icon -->
+      <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="4" y1="6" x2="20" y2="6" />
+        <line x1="4" y1="12" x2="20" y2="12" />
+        <line x1="4" y1="18" x2="20" y2="18" />
+      </svg>
+      <!-- Close icon -->
+      <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="6" y1="6" x2="18" y2="18" />
+        <line x1="18" y1="6" x2="6" y2="18" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile nav -->
+  <div id="mobile-menu" class="hidden md:hidden bg-background border-b border-border">
+    <ul class="flex flex-col items-center gap-4 py-6">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="mobile-nav-link text-base tracking-wide text-muted-foreground transition-colors hover:text-foreground"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+      <li>
+        <a
+          href="#contact"
+          class="mobile-nav-link inline-flex items-center justify-center rounded-sm bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground"
+        >
+          Book a Lesson
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle')!
+  const menu = document.getElementById('mobile-menu')!
+  const iconMenu = document.getElementById('icon-menu')!
+  const iconClose = document.getElementById('icon-close')!
+
+  toggle.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden')
+    menu.classList.toggle('hidden', isOpen)
+    iconMenu.classList.toggle('hidden', !isOpen)
+    iconClose.classList.toggle('hidden', isOpen)
+    toggle.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu')
+  })
+
+  document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden')
+      iconMenu.classList.remove('hidden')
+      iconClose.classList.add('hidden')
+      toggle.setAttribute('aria-label', 'Open menu')
+    })
+  })
+</script>
