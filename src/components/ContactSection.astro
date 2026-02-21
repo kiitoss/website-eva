@@ -1,0 +1,146 @@
+---
+const contactDetails = [
+  { label: "Location", value: "12 Rue de la Paix, 75002 Paris" },
+  { label: "Email", value: "contact@taiso-dojo.com" },
+  { label: "Hours", value: "Monday – Saturday, 7:00 – 20:00" },
+]
+---
+
+<section id="contact" class="py-24 md:py-32 bg-background">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="grid md:grid-cols-2 gap-16">
+      <!-- Left column -->
+      <div>
+        <p class="text-sm tracking-[0.3em] uppercase text-accent mb-4">
+          Contact
+        </p>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground text-balance">
+          Begin Your Journey
+        </h2>
+        <p class="mt-6 text-base leading-relaxed text-muted-foreground max-w-md">
+          Whether you are new to martial arts or an experienced practitioner, your path to deeper body awareness starts with a single step. Reach out to schedule your first personal lesson.
+        </p>
+
+        <div class="mt-10 flex flex-col gap-6">
+          {contactDetails.map((detail) => (
+            <div>
+              <p class="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-1">
+                {detail.label}
+              </p>
+              <p class="text-foreground">{detail.value}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right column - Form -->
+      <div>
+        <!-- Success state (hidden by default) -->
+        <div id="contact-success" class="hidden border border-accent/30 rounded-sm p-12 text-center bg-secondary">
+          <span class="text-4xl block mb-4 text-accent">✔</span>
+          <h3 class="text-xl font-bold text-foreground">Thank You</h3>
+          <p class="text-muted-foreground mt-2">
+            Your message has been received. We will be in touch shortly to arrange your first session.
+          </p>
+        </div>
+
+        <!-- Form -->
+        <form id="contact-form" class="flex flex-col gap-6">
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="flex flex-col gap-2">
+              <label for="firstName" class="text-xs tracking-[0.2em] uppercase text-muted-foreground">
+                First Name
+              </label>
+              <input
+                id="firstName"
+                name="firstName"
+                type="text"
+                required
+                placeholder="Your first name"
+                class="border border-border rounded-sm bg-card px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-accent transition-colors"
+              />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="lastName" class="text-xs tracking-[0.2em] uppercase text-muted-foreground">
+                Last Name
+              </label>
+              <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                required
+                placeholder="Your last name"
+                class="border border-border rounded-sm bg-card px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-accent transition-colors"
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="email" class="text-xs tracking-[0.2em] uppercase text-muted-foreground">
+              Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              placeholder="your@email.com"
+              class="border border-border rounded-sm bg-card px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-accent transition-colors"
+            />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="experience" class="text-xs tracking-[0.2em] uppercase text-muted-foreground">
+              Experience Level
+            </label>
+            <select
+              id="experience"
+              name="experience"
+              class="border border-border rounded-sm bg-card px-4 py-3 text-foreground focus:outline-none focus:ring-1 focus:ring-accent transition-colors"
+            >
+              <option value="beginner">Complete Beginner</option>
+              <option value="some">Some Martial Arts Experience</option>
+              <option value="experienced">Experienced Practitioner</option>
+            </select>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="message" class="text-xs tracking-[0.2em] uppercase text-muted-foreground">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={4}
+              placeholder="Tell us about your goals and what brings you to Taiso..."
+              class="border border-border rounded-sm bg-card px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-accent transition-colors resize-none"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="inline-flex items-center justify-center gap-2 rounded-sm bg-primary px-8 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            <!-- Send icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/>
+              <path d="m21.854 2.147-10.94 10.939"/>
+            </svg>
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contact-form')!
+  const success = document.getElementById('contact-success')!
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    form.classList.add('hidden')
+    success.classList.remove('hidden')
+  })
+</script>
