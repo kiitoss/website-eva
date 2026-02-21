@@ -1,0 +1,53 @@
+---
+const testimonials = [
+  {
+    quote:
+      "Taiso has transformed my understanding of movement. Each session leaves me feeling centered, stronger, and deeply connected to my body.",
+    name: "Marie L.",
+    role: "Practicing for 3 years",
+  },
+  {
+    quote:
+      "As a former athlete, I thought I understood physical conditioning. Taiso showed me a whole new dimension of body awareness and control.",
+    name: "Thomas D.",
+    role: "Practicing for 1 year",
+  },
+  {
+    quote:
+      "The personal attention is extraordinary. Every lesson is tailored perfectly to my progress and goals. I have never felt more flexible or at peace.",
+    name: "Sophie R.",
+    role: "Practicing for 5 years",
+  },
+]
+---
+
+<section id="testimonials" class="py-24 md:py-32 bg-primary">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="text-center mb-16">
+      <p class="text-sm tracking-[0.3em] uppercase text-primary-foreground/60 mb-4">
+        Testimonials
+      </p>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-primary-foreground text-balance">
+        Words from the Dojo
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {testimonials.map((testimonial) => (
+        <div class="border border-primary-foreground/10 rounded-sm p-8 flex flex-col">
+          <blockquote class="text-base leading-relaxed text-primary-foreground/80 flex-1">
+            "{testimonial.quote}"
+          </blockquote>
+          <div class="mt-8 pt-6 border-t border-primary-foreground/10">
+            <p class="font-bold text-primary-foreground">
+              {testimonial.name}
+            </p>
+            <p class="text-sm text-primary-foreground/50 mt-1">
+              {testimonial.role}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
