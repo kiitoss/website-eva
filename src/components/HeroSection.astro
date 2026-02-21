@@ -1,4 +1,16 @@
 ---
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "@/components/ui/button"
+
+const primaryBtnClass = cn(
+  buttonVariants({ variant: "default" }),
+  "rounded-sm px-8 py-3.5 h-auto bg-accent text-accent-foreground hover:bg-accent/90"
+)
+
+const outlineBtnClass = cn(
+  buttonVariants({ variant: "ghost" }),
+  "rounded-sm px-8 py-3.5 h-auto border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+)
 ---
 
 <section class="relative min-h-screen flex items-end overflow-hidden">
@@ -18,33 +30,33 @@
       <p class="text-sm tracking-[0.4em] uppercase text-primary-foreground/70 mb-4">
         Personal Martial Art Lessons
       </p>
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-primary-foreground text-balance">
+      <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-primary-foreground text-balance">
         The Art of Body & Mind
       </h1>
       <p class="mt-6 text-lg md:text-xl leading-relaxed text-primary-foreground/80 max-w-lg">
         Taiso is a Japanese discipline of body conditioning rooted in centuries of martial arts tradition. Discover harmony through movement.
       </p>
       <div class="mt-10 flex flex-col sm:flex-row gap-4">
-        <a
-          href="#contact"
-          class="inline-flex items-center justify-center rounded-sm bg-background px-8 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-background/90"
-        >
-          Begin Your Practice
-        </a>
-        <a
-          href="#philosophy"
-          class="inline-flex items-center justify-center rounded-sm border border-primary-foreground/30 px-8 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
-        >
-          Learn More
-        </a>
+        <a href="#contact" class={primaryBtnClass}>Begin Your Practice</a>
+        <a href="#philosophy" class={outlineBtnClass}>Learn More</a>
       </div>
     </div>
 
     <!-- Decorative Japanese character -->
     <div class="absolute right-6 md:right-12 bottom-16 md:bottom-24 opacity-10 pointer-events-none select-none">
-      <span class="text-[8rem] md:text-[14rem] font-bold text-primary-foreground leading-none">
+      <span class="font-serif text-[8rem] md:text-[14rem] font-bold text-primary-foreground leading-none">
         体
       </span>
     </div>
   </div>
+
+  <a
+    href="#philosophy"
+    class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer z-20"
+    aria-label="Scroll to next section"
+  >
+    <div class="h-8 w-5 rounded-full border-2 border-primary-foreground/40 flex items-start justify-center pt-1.5">
+      <div class="h-2 w-1 rounded-full bg-primary-foreground/60"></div>
+    </div>
+  </a>
 </section>

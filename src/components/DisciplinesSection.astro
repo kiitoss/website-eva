@@ -1,4 +1,7 @@
 ---
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "@/components/ui/button"
+
 const disciplines = [
   {
     title: "Taiso Fundamentals",
@@ -22,6 +25,8 @@ const disciplines = [
     level: "Advanced",
   },
 ]
+
+const ctaClass = cn(buttonVariants({ variant: "default" }), "bg-accent text-accent-foreground hover:bg-accent/90 rounded-sm px-8 py-3.5 h-auto mt-2")
 ---
 
 <section id="disciplines" class="py-24 md:py-32 bg-secondary">
@@ -31,7 +36,7 @@ const disciplines = [
         <p class="text-sm tracking-[0.3em] uppercase text-accent mb-4">
           Disciplines
         </p>
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground text-balance">
+        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground text-balance">
           Choose Your Path
         </h2>
       </div>
@@ -78,10 +83,7 @@ const disciplines = [
           </div>
         ))}
 
-        <a
-          href="#contact"
-          class="inline-flex items-center justify-center rounded-sm bg-primary px-8 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 mt-2"
-        >
+        <a href="#contact" class={ctaClass}>
           Schedule a Session
         </a>
       </div>
