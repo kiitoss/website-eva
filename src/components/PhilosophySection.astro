@@ -3,25 +3,25 @@ const principles = [
   {
     kanji: "心",
     title: "Kokoro",
-    subtitle: "Heart & Mind",
+    subtitle: "Corps & Esprit",
     description:
-      "Cultivate mental clarity and emotional balance through focused breathing and meditation integrated into every movement.",
+      "Cultivez la clarté mentale et l'équilibre émotionnel grâce à une respiration concentrée et à la méditation intégrées à chaque mouvement.",
   },
   {
     kanji: "技",
     title: "Waza",
     subtitle: "Technique",
     description:
-      "Master precise body mechanics and movement patterns refined over centuries of martial arts tradition.",
+      "Maîtrisez les mécanismes corporels précis et les schémas de mouvement affinés au fil des siècles par la tradition des arts martiaux.",
   },
   {
     kanji: "体",
     title: "Karada",
-    subtitle: "Body",
+    subtitle: "Corps",
     description:
-      "Develop functional strength, flexibility, and coordination that serves you in every aspect of daily life.",
+      "Développez votre force fonctionnelle, votre souplesse et votre coordination, qui vous seront utiles dans tous les aspects de votre vie quotidienne.",
   },
-]
+];
 ---
 
 <section id="philosophy" class="py-24 md:py-32 bg-background">
@@ -30,42 +30,53 @@ const principles = [
       <!-- Left column -->
       <div>
         <p class="text-sm tracking-[0.3em] uppercase text-accent mb-4">
-          Philosophy
+          Philosophie
         </p>
-        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground text-balance">
-          Discipline of the Body, Stillness of the Mind
+        <h2
+          class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground text-balance"
+        >
+          Discipline du Corps, tranquillité de l'Esprit
         </h2>
       </div>
 
       <!-- Right column -->
       <div class="flex flex-col gap-8">
         <p class="text-base leading-relaxed text-muted-foreground">
-          Taiso, meaning "body conditioning" in Japanese, is a holistic practice that draws from the rich traditions of martial arts. It is not merely exercise—it is a way of cultivating awareness, balance, and inner strength through deliberate, mindful movement.
+          Le Taïso, qui signifie « conditionnement physique » en japonais, est
+          une pratique holistique qui s'inspire des riches traditions des arts
+          martiaux. Il ne s'agit pas simplement d'exercice physique, mais d'une
+          manière de cultiver la conscience, l'équilibre et la force intérieure
+          par des mouvements délibérés et conscients.
         </p>
         <p class="text-base leading-relaxed text-muted-foreground">
-          Rooted in the principles of Judo and traditional Japanese physical culture, Taiso develops flexibility, coordination, and mental clarity. Each session is a journey toward deeper understanding of your own body.
+          Ancré dans les principes du judo et de la culture physique
+          traditionnelle japonaise, le Taïso développe la souplesse, la
+          coordination et la clarté mentale. Chaque séance est un voyage vers
+          une compréhension plus profonde de votre propre corps.
         </p>
       </div>
     </div>
 
     <!-- Three principles -->
     <div class="grid md:grid-cols-3 gap-8 mt-20">
-      {principles.map((principle) => (
-        <div class="group border border-border rounded-sm p-8 transition-colors hover:bg-secondary">
-          <span class="text-5xl text-accent opacity-60 group-hover:opacity-100 transition-opacity">
-            {principle.kanji}
-          </span>
-          <h3 class="text-xl font-bold text-foreground mt-4">
-            {principle.title}
-          </h3>
-          <p class="text-sm tracking-wide text-accent mt-1 mb-3">
-            {principle.subtitle}
-          </p>
-          <p class="text-sm leading-relaxed text-muted-foreground">
-            {principle.description}
-          </p>
-        </div>
-      ))}
+      {
+        principles.map((principle) => (
+          <div class="group border border-border rounded-sm p-8 transition-colors hover:bg-secondary">
+            <span class="text-5xl text-accent opacity-60 group-hover:opacity-100 transition-opacity">
+              {principle.kanji}
+            </span>
+            <h3 class="text-xl font-bold text-foreground mt-4">
+              {principle.title}
+            </h3>
+            <p class="text-sm tracking-wide text-accent mt-1 mb-3">
+              {principle.subtitle}
+            </p>
+            <p class="text-sm leading-relaxed text-muted-foreground">
+              {principle.description}
+            </p>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

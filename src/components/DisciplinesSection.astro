@@ -1,47 +1,56 @@
 ---
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 
 const disciplines = [
   {
-    title: "Taiso Fundamentals",
+    title: "Les fondamentaux du Taïso",
     description:
-      "Foundation work focusing on posture, breathing, and basic movement patterns. Ideal for beginners seeking a grounded introduction to the practice.",
+      "Travail de base axé sur la posture, la respiration et les mouvements fondamentaux. Idéal pour les débutants qui souhaitent s'initier à cette pratique de manière solide. ",
     duration: "60 min",
-    level: "All Levels",
+    level: "Tout niveau",
   },
   {
-    title: "Judo Taiso",
+    title: "Judo Taïso",
     description:
-      "Dynamic conditioning inspired by Judo training methods. Emphasizes breakfalls, rolling techniques, and partner exercises for functional agility.",
+      "Conditionnement dynamique inspiré des méthodes d'entraînement du judo. Met l'accent sur les chutes amorties, les techniques de roulade et les exercices avec partenaire pour une agilité fonctionnelle.",
     duration: "75 min",
-    level: "Intermediate",
+    level: "Intermédiaire",
   },
   {
     title: "Shin Tai So",
     description:
-      "An advanced practice blending meditative movement with challenging physical sequences. Designed to push boundaries while maintaining inner calm.",
+      "Une pratique avancée alliant mouvements méditatifs et enchaînements physiques exigeants. Conçue pour repousser les limites tout en conservant un calme intérieur.",
     duration: "90 min",
-    level: "Advanced",
+    level: "Avancé",
   },
-]
+];
 
-const ctaClass = cn(buttonVariants({ variant: "default" }), "bg-accent text-accent-foreground hover:bg-accent/90 rounded-sm px-8 py-3.5 h-auto mt-2")
+const ctaClass = cn(
+  buttonVariants({ variant: "default" }),
+  "bg-accent text-accent-foreground hover:bg-accent/90 rounded-sm px-8 py-3.5 h-auto mt-2",
+);
 ---
 
 <section id="disciplines" class="py-24 md:py-32 bg-secondary">
   <div class="mx-auto max-w-6xl px-6">
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16">
+    <div
+      class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16"
+    >
       <div>
         <p class="text-sm tracking-[0.3em] uppercase text-accent mb-4">
-          Disciplines
+          Cours
         </p>
-        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground text-balance">
-          Choose Your Path
+        <h2
+          class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground text-balance"
+        >
+          Choisissez votre chemin
         </h2>
       </div>
       <p class="text-base text-muted-foreground max-w-md">
-        Each discipline is tailored to your level and goals. All sessions are one-on-one for personalized guidance.
+        Chaque discipline est adaptée à votre niveau et à vos objectifs. Toutes
+        les séances sont individuelles afin de vous offrir un accompagnement
+        personnalisé.
       </p>
     </div>
 
@@ -50,42 +59,42 @@ const ctaClass = cn(buttonVariants({ variant: "default" }), "bg-accent text-acce
       <div class="relative aspect-[4/5] rounded-sm overflow-hidden">
         <img
           src="/images/test-1.jpg"
-          alt="Taiso practice in a traditional dojo"
+          alt="Taïso practice in a traditional dojo"
           class="absolute inset-0 w-full h-full object-cover"
         />
       </div>
 
       <!-- Disciplines list -->
       <div class="flex flex-col gap-6">
-        {disciplines.map((discipline, index) => (
-          <div class="border border-border bg-card rounded-sm p-8 transition-colors hover:border-accent/40">
-            <div class="flex items-start justify-between gap-4">
-              <div>
-                <span class="text-xs tracking-wider text-accent font-medium">
-                  0{index + 1}
-                </span>
-                <h3 class="text-xl font-bold text-foreground mt-2">
-                  {discipline.title}
-                </h3>
+        {
+          disciplines.map((discipline, index) => (
+            <div class="border border-border bg-card rounded-sm p-8 transition-colors hover:border-accent/40">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <span class="text-xs tracking-wider text-accent font-medium">
+                    0{index + 1}
+                  </span>
+                  <h3 class="text-xl font-bold text-foreground mt-2">
+                    {discipline.title}
+                  </h3>
+                </div>
+                <div class="flex flex-col items-end gap-1 shrink-0">
+                  <span class="text-xs tracking-wide text-muted-foreground">
+                    {discipline.duration}
+                  </span>
+                  <span class="text-xs tracking-wide text-accent">
+                    {discipline.level}
+                  </span>
+                </div>
               </div>
-              <div class="flex flex-col items-end gap-1 shrink-0">
-                <span class="text-xs tracking-wide text-muted-foreground">
-                  {discipline.duration}
-                </span>
-                <span class="text-xs tracking-wide text-accent">
-                  {discipline.level}
-                </span>
-              </div>
+              <p class="text-sm leading-relaxed text-muted-foreground mt-4">
+                {discipline.description}
+              </p>
             </div>
-            <p class="text-sm leading-relaxed text-muted-foreground mt-4">
-              {discipline.description}
-            </p>
-          </div>
-        ))}
+          ))
+        }
 
-        <a href="#contact" class={ctaClass}>
-          Schedule a Session
-        </a>
+        <a href="#contact" class={ctaClass}> Réserver une séance</a>
       </div>
     </div>
   </div>

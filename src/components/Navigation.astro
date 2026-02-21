@@ -3,10 +3,10 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 
 const navLinks = [
-  { label: "Philosophy", href: "#philosophy" },
-  { label: "Disciplines", href: "#disciplines" },
-  { label: "Instructor", href: "#instructor" },
-  { label: "Testimonials", href: "#testimonials" },
+  { label: "Philosophie", href: "#philosophy" },
+  { label: "Cours", href: "#disciplines" },
+  { label: "Votre professeure", href: "#instructor" },
+  { label: "Témoignages", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -21,7 +21,7 @@ const ctaClass = cn(
 >
   <nav class="mx-auto max-w-6xl flex items-center justify-between px-6 py-4">
     <a href="#" class="flex items-center gap-3">
-      <span class="text-xl font-bold tracking-wide text-foreground">TAISO</span>
+      <span class="text-xl font-bold tracking-wide text-foreground">TAÏSO</span>
       <span
         class="hidden sm:inline text-xs tracking-[0.3em] uppercase text-muted-foreground"
         >Dojo</span
@@ -45,14 +45,14 @@ const ctaClass = cn(
     </ul>
 
     <a href="#contact" class={`hidden md:inline-flex ${ctaClass}`}>
-      Book a Lesson
+      Prendre contact
     </a>
 
     <!-- Mobile menu toggle -->
     <button
       id="menu-toggle"
       class="md:hidden text-foreground"
-      aria-label="Open menu"
+      aria-label="Ouvrir le menu"
     >
       <svg
         id="icon-menu"
@@ -104,7 +104,7 @@ const ctaClass = cn(
       }
       <li>
         <a href="#contact" class={`mobile-nav-link ${ctaClass}`}>
-          Book a Lesson
+          Prendre contact
         </a>
       </li>
     </ul>
@@ -122,7 +122,7 @@ const ctaClass = cn(
     menu.classList.toggle("hidden", isOpen);
     iconMenu.classList.toggle("hidden", !isOpen);
     iconClose.classList.toggle("hidden", isOpen);
-    toggle.setAttribute("aria-label", isOpen ? "Open menu" : "Close menu");
+    toggle.setAttribute("aria-label", isOpen ? "Ouvrir le menu" : "Fermer le menu");
   });
 
   document.querySelectorAll(".mobile-nav-link").forEach((link) => {
@@ -130,7 +130,7 @@ const ctaClass = cn(
       menu.classList.add("hidden");
       iconMenu.classList.remove("hidden");
       iconClose.classList.add("hidden");
-      toggle.setAttribute("aria-label", "Open menu");
+      toggle.setAttribute("aria-label", "Ouvrir le menu");
     });
   });
 </script>
